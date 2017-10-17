@@ -1,0 +1,11 @@
+---
+profile::apache::apache_vhost_servers: {
+  'pnewman422.mylabserver.com': {
+    port: 80,
+    docroot: '/var/www/pnewman422'
+  },
+  'pnewman422b.mylabserver.com': {
+    port: 80,
+    docroot: '/var/www/pnewman422b'
+  }
+}
