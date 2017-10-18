@@ -1,11 +1,8 @@
 ---
-profile::apache::apache_vhost_servers: {
-  'pnewman422.mylabserver.com': {
-    port: 80,
-    docroot: '/var/www/pnewman422'
-  },
-  'pnewman422b.mylabserver.com': {
-    port: 80,
-    docroot: '/var/www/pnewman422b'
-  }
-}
+profile::nginx::vhosts:
+  - 'fqdn': 'pnewman422.mylabserver.com'
+    'port': 80
+    'server_aliases': ''
+  - 'fqdn': 'pnewman422b.mylabserver.com'
+    'port': 80
+    'server_aliases': 'pnewman422b1.mylabserver.com'
