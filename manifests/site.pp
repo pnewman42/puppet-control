@@ -42,8 +42,8 @@ node 'pnewman422.mylabserver.com' {
   notify { 'test-message-for-pnewman422':
     message => 'This is pnewman422 using node definition.'
   }
-#
-#}
+
+}
 
 node default {
   # This is where you can declare classes for all nodes.
