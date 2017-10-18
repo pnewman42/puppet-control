@@ -12,7 +12,6 @@
 ## Active Configurations ##
 
 # Disable filebucket by default for all File resources:
-#https://docs.puppet.com/pe/2015.3/release_notes.html#filebucket-resource-no-longer-created-by-default
 File { backup => false }
 
 # DEFAULT NODE
@@ -24,6 +23,27 @@ File { backup => false }
 # definition. If there are no other nodes in this file, classes declared here
 # will be included in every node's catalog, *in addition* to any classes
 # specified in the console for that node.
+
+# Handle missing wheel group in oses that don't have it to keep minor error
+# out of agent runs
+
+if $facts['os']['family'] == 'Debian' {
+  group { 'wheel':
+    ensure    => present,
+    gid       => '10',
+    allowdupe => true,
+  }
+}
+
+
+
+node 'pnewman422.mylabserver.com' {
+#  include role::apache
+  notify { 'test-message-for-pnewman422':
+    message => 'This is pnewman422 using node definition.'
+  }
+#
+#}
 
 node default {
   # This is where you can declare classes for all nodes.
