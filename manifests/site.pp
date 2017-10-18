@@ -37,15 +37,16 @@ if $facts['os']['family'] == 'Debian' {
 
 
 
-node 'pnewman422.mylabserver.com' {
+#node 'pnewman422.mylabserver.com' {
 #  include role::apache
-  notify { 'test-message-for-pnewman422':
-    message => 'This is pnewman422 using node definition.'
-  }
-
-}
+#  notify { 'test-message-for-pnewman422':
+#    message => 'This is pnewman422 using node definition.'
+#  }
+#
+#}
 
 node default {
+  hiera_include('classes')
   # This is where you can declare classes for all nodes.
   # Example:
   #   class { 'my_class': }

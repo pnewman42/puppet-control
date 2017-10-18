@@ -15,3 +15,5 @@ profile::apache::apache_vhost_servers: {
      docroot: '/var/www/pnewman421b'
    }
 }
+classes:
+  - profile::nginx
